@@ -21,6 +21,12 @@
 		1DFD67E9194057680005A09A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DFD67CB194057680005A09A /* UIKit.framework */; };
 		1DFD67F1194057680005A09A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1DFD67EF194057680005A09A /* InfoPlist.strings */; };
 		1DFD67F3194057680005A09A /* ChopeTableControllerTestsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD67F2194057680005A09A /* ChopeTableControllerTestsTests.m */; };
+		1DFD68081940579F0005A09A /* ChopeLoadingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD67FE1940579F0005A09A /* ChopeLoadingTableViewCell.m */; };
+		1DFD680A1940579F0005A09A /* ChopeTableCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD68021940579F0005A09A /* ChopeTableCellInfo.m */; };
+		1DFD680B1940579F0005A09A /* ChopeTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD68041940579F0005A09A /* ChopeTableController.m */; };
+		1DFD680C1940579F0005A09A /* ChopeTableInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD68061940579F0005A09A /* ChopeTableInfo.m */; };
+		1DFD680F194058700005A09A /* CPSimpleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD680E194058700005A09A /* CPSimpleTableViewCell.m */; };
+		1DFD681119405CCB0005A09A /* ChopeTableController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1DFD681019405CCB0005A09A /* ChopeTableController.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,18 @@
 		1DFD67EE194057680005A09A /* ChopeTableControllerTestsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ChopeTableControllerTestsTests-Info.plist"; sourceTree = "<group>"; };
 		1DFD67F0194057680005A09A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1DFD67F2194057680005A09A /* ChopeTableControllerTestsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChopeTableControllerTestsTests.m; sourceTree = "<group>"; };
+		1DFD67FD1940579F0005A09A /* ChopeLoadingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChopeLoadingTableViewCell.h; sourceTree = "<group>"; };
+		1DFD67FE1940579F0005A09A /* ChopeLoadingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChopeLoadingTableViewCell.m; sourceTree = "<group>"; };
+		1DFD68011940579F0005A09A /* ChopeTableCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChopeTableCellInfo.h; sourceTree = "<group>"; };
+		1DFD68021940579F0005A09A /* ChopeTableCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChopeTableCellInfo.m; sourceTree = "<group>"; };
+		1DFD68031940579F0005A09A /* ChopeTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChopeTableController.h; sourceTree = "<group>"; };
+		1DFD68041940579F0005A09A /* ChopeTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChopeTableController.m; sourceTree = "<group>"; };
+		1DFD68051940579F0005A09A /* ChopeTableInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChopeTableInfo.h; sourceTree = "<group>"; };
+		1DFD68061940579F0005A09A /* ChopeTableInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChopeTableInfo.m; sourceTree = "<group>"; };
+		1DFD68071940579F0005A09A /* ChopeTableCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChopeTableCellDelegate.h; sourceTree = "<group>"; };
+		1DFD680D194058700005A09A /* CPSimpleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSimpleTableViewCell.h; sourceTree = "<group>"; };
+		1DFD680E194058700005A09A /* CPSimpleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSimpleTableViewCell.m; sourceTree = "<group>"; };
+		1DFD681019405CCB0005A09A /* ChopeTableController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChopeTableController.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +100,8 @@
 		1DFD67BB194057680005A09A = {
 			isa = PBXGroup;
 			children = (
+				1DFD681019405CCB0005A09A /* ChopeTableController.podspec */,
+				1DFD67FC1940579F0005A09A /* ChopeTableController */,
 				1DFD67CD194057680005A09A /* ChopeTableControllerTests */,
 				1DFD67EC194057680005A09A /* ChopeTableControllerTestsTests */,
 				1DFD67C6194057680005A09A /* Frameworks */,
@@ -117,6 +137,8 @@
 				1DFD67D9194057680005A09A /* Main.storyboard */,
 				1DFD67DC194057680005A09A /* CPViewController.h */,
 				1DFD67DD194057680005A09A /* CPViewController.m */,
+				1DFD680D194058700005A09A /* CPSimpleTableViewCell.h */,
+				1DFD680E194058700005A09A /* CPSimpleTableViewCell.m */,
 				1DFD67DF194057680005A09A /* Images.xcassets */,
 				1DFD67CE194057680005A09A /* Supporting Files */,
 			);
@@ -150,6 +172,22 @@
 				1DFD67EF194057680005A09A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1DFD67FC1940579F0005A09A /* ChopeTableController */ = {
+			isa = PBXGroup;
+			children = (
+				1DFD67FD1940579F0005A09A /* ChopeLoadingTableViewCell.h */,
+				1DFD67FE1940579F0005A09A /* ChopeLoadingTableViewCell.m */,
+				1DFD68011940579F0005A09A /* ChopeTableCellInfo.h */,
+				1DFD68021940579F0005A09A /* ChopeTableCellInfo.m */,
+				1DFD68031940579F0005A09A /* ChopeTableController.h */,
+				1DFD68041940579F0005A09A /* ChopeTableController.m */,
+				1DFD68051940579F0005A09A /* ChopeTableInfo.h */,
+				1DFD68061940579F0005A09A /* ChopeTableInfo.m */,
+				1DFD68071940579F0005A09A /* ChopeTableCellDelegate.h */,
+			);
+			path = ChopeTableController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +270,7 @@
 				1DFD67E0194057680005A09A /* Images.xcassets in Resources */,
 				1DFD67D2194057680005A09A /* InfoPlist.strings in Resources */,
 				1DFD67DB194057680005A09A /* Main.storyboard in Resources */,
+				1DFD681119405CCB0005A09A /* ChopeTableController.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +291,12 @@
 			files = (
 				1DFD67D4194057680005A09A /* main.m in Sources */,
 				1DFD67D8194057680005A09A /* CPAppDelegate.m in Sources */,
+				1DFD680F194058700005A09A /* CPSimpleTableViewCell.m in Sources */,
+				1DFD68081940579F0005A09A /* ChopeLoadingTableViewCell.m in Sources */,
 				1DFD67DE194057680005A09A /* CPViewController.m in Sources */,
+				1DFD680A1940579F0005A09A /* ChopeTableCellInfo.m in Sources */,
+				1DFD680C1940579F0005A09A /* ChopeTableInfo.m in Sources */,
+				1DFD680B1940579F0005A09A /* ChopeTableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
