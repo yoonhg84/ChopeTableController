@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author       = { 'Chope' => 'yoonhg2002@gmail.com' }
   s.summary      = 'iOS UITableView Controller'
   s.source       = { :git => 'https://github.com/chope-yoonhg84/ChopeTableController.git', :tag => 'v0.1.0' }
-  s.platform     = :ios
+  s.platform     = :ios, "7.0"
   s.source_files = 'ChopeTableController/*.{h,m}'
   s.requires_arc = true
 end
