@@ -6,6 +6,7 @@
 #import "ChopeTableInfo.h"
 #import "ChopeTableCellInfo.h"
 #import "ChopeTableController.h"
+#import "ChopeTableCellDelegate.h"
 
 
 @implementation ChopeTableInfo

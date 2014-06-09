@@ -10,7 +10,6 @@
 #import "ChopeTableCellDelegate.h"
 #import "ChopeLoadingTableViewCell.h"
 #import "ChopeTableCellInfo.h"
-#import "ChopeTableInfo.h"
 
 
 @interface ChopeTableController ()
@@ -89,7 +88,11 @@
     }
     
     [cellDelegate updateData:cellInfo.data indexPath:indexPath];
-    
+
+    if (info.didLoadCellBlock) {
+        info.didLoadCellBlock(info, cellDelegate, indexPath);
+    }
+
     return (UITableViewCell*) cellDelegate;
 }
 
@@ -117,8 +120,8 @@
         [cellDelegate selectedWithData:cellInfo.data indexPath:indexPath];
     }
     
-    if (info.didSelectRow) {
-        info.didSelectRow(info, indexPath);
+    if (info.didSelectRowBlock) {
+        info.didSelectRowBlock(info, indexPath);
     }
 }
 

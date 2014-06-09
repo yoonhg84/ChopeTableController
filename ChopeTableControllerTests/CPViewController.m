@@ -27,7 +27,12 @@
     
     self.tableController = [[ChopeTableController alloc] init];
     ChopeTableInfo *tableViewInfo = [self.tableController addTableInfo:self.tableView paging:NO];
-    
+    [tableViewInfo setDidLoadCellBlock:^(ChopeTableInfo *tableInfo, id <ChopeTableCellDelegate> cellDelegate, NSIndexPath *indexPath) {
+        CPSimpleTableViewCell *cell = (CPSimpleTableViewCell *) cellDelegate;
+
+        [cell.button addTarget:self action:@selector(touchTestButton:) forControlEvents:UIControlEventTouchUpInside];
+    }];
+
     Class cellClass = [CPSimpleTableViewCell class];
     
     for (NSUInteger i=1; i<=10; i++) {
@@ -39,6 +44,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)touchTestButton:(UIButton *)button {
+    NSLog(@"touched");
 }
 
 @end

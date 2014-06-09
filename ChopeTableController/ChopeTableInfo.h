@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 
 @class ChopeTableCellInfo;
+@protocol ChopeTableCellDelegate;
 
 
 @interface ChopeTableInfo : NSObject
@@ -16,8 +17,9 @@
 @property (nonatomic) BOOL loading;
 @property (nonatomic) BOOL hasMore;
 
-@property (nonatomic, copy) void (^loadPageBlock)(ChopeTableInfo *tableViewInfo);
-@property (nonatomic, copy) void (^didSelectRow)(ChopeTableInfo *tableViewInfo, NSIndexPath *indexPath);
+@property (nonatomic, copy) void (^loadPageBlock)(ChopeTableInfo *tableInfo);
+@property (nonatomic, copy) void (^didSelectRowBlock)(ChopeTableInfo *tableInfo, NSIndexPath *indexPath);
+@property (nonatomic, copy) void (^didLoadCellBlock)(ChopeTableInfo *tableInfo, id<ChopeTableCellDelegate> cellDelegate, NSIndexPath *indexPath);
 
 - (id)cellInfoAtIndex:(NSIndexPath *)indexPath;
 - (void)addCellInfo:(ChopeTableCellInfo *)cellInfo;

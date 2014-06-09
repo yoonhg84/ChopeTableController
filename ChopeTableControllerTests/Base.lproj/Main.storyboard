@@ -28,9 +28,18 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Fvh-St-SEU">
+                                            <rect key="frame" x="250" y="10" width="60" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" red="0.47058823529999999" green="0.078431372550000003" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Touch">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="button" destination="Fvh-St-SEU" id="rtH-OQ-J7b"/>
                                     <outlet property="titleLabel" destination="B7m-My-p1h" id="sL1-ct-Ds4"/>
                                 </connections>
                             </tableViewCell>
