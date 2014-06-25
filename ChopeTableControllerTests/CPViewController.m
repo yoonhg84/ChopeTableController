@@ -29,6 +29,14 @@
 
     ChopeTableInfo *tableViewInfo = [self.tableController addTableInfo:self.tableView paging:NO];
     [tableViewInfo addCellClass:[CPSimpleTableViewCell class] cellIdentifier:CELL_IDENTIFIER_LABEL];
+    [tableViewInfo setDidLoadCellBlock:^(ChopeTableInfo *tableInfo, id <ChopeTableCellDelegate> cellDelegate, NSIndexPath *indexPath) {
+        CPSimpleTableViewCell *cell = (CPSimpleTableViewCell *) cellDelegate;
+        cell.button.tag = indexPath.row;
+        [cell.button addTarget:self action:@selector(touchTestButton:) forControlEvents:UIControlEventTouchUpInside];
+    }];
+    [tableViewInfo setDidSelectRowBlock:^(ChopeTableInfo *cpTableInfo, NSIndexPath *indexPath) {
+        NSLog(@"selected cell : %d", indexPath.row);
+    }];
 
     for (NSUInteger i=1; i<=100; i++) {
         [tableViewInfo addData:[NSString stringWithFormat:@"item - %d", i] cellIdentifier:CELL_IDENTIFIER_LABEL];
@@ -39,6 +47,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)touchTestButton:(UIButton *)button {
+    NSLog(@"touched button : %d", button.tag);
 }
 
 @end

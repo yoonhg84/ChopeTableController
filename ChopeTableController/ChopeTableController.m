@@ -87,9 +87,13 @@
             info.loadPageBlock(info);
         }
     }
-    
+
     [cellDelegate updateData:data indexPath:indexPath];
-    
+
+    if (info.didLoadCellBlock) {
+        info.didLoadCellBlock(info, cellDelegate, indexPath);
+    }
+
     return (UITableViewCell*) cellDelegate;
 }
 
@@ -118,8 +122,8 @@
         [cellDelegate selectWithData:data indexPath:indexPath];
     }
     
-    if (info.didSelectRow) {
-        info.didSelectRow(info, indexPath);
+    if (info.didSelectRowBlock) {
+        info.didSelectRowBlock(info, indexPath);
     }
 }
 
