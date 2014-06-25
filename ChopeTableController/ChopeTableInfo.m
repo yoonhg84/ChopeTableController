@@ -7,6 +7,13 @@
 #import "ChopeTableCellInfo.h"
 #import "ChopeTableController.h"
 
+@interface ChopeTableInfo ()
+
+@property (nonatomic, strong) NSMutableArray *cellDataArray;
+@property (nonatomic, strong) NSMutableDictionary *cellInfoDic;
+
+@end
+
 
 @implementation ChopeTableInfo
 
@@ -14,18 +21,10 @@
     self = [super init];
     if (self) {
         self.hasMore = YES;
-        self.cellInfoList = [[NSMutableArray alloc] init];
+        self.cellDataArray = [[NSMutableArray alloc] init];
+        self.cellInfoDic = [[NSMutableDictionary alloc] init];
     }
     return self;
-}
-
-- (id)cellInfoAtIndex:(NSIndexPath *)indexPath {
-    if (self.countOfCell <= indexPath.row) {
-        return nil;
-    }
-
-    ChopeTableCellInfo *cellInfo = self.cellInfoList[(NSUInteger) indexPath.row];
-    return cellInfo;
 }
 
 - (void)setPaging:(BOOL)paging {
@@ -33,20 +32,47 @@
     [self.tableView registerClass:[ChopeTableController bottomLoadingCellClass] forCellReuseIdentifier:[ChopeTableController bottomLoadingCellIdentifier]];
 }
 
-- (void)addCellInfo:(ChopeTableCellInfo *)cellInfo {
-    [self.cellInfoList addObject:cellInfo];
+- (void)addCellClass:(Class)cellClass cellIdentifier:(NSString *)cellIdentifier {
+    ChopeTableCellInfo *cellInfo = [[ChopeTableCellInfo alloc] init];
+    cellInfo.cellClass = cellClass;
+    cellInfo.cellIdentifier = cellIdentifier;
+
+    [self.cellInfoDic setObject:cellInfo forKey:cellInfo.cellIdentifier];
 }
 
-- (void)addCellClass:(Class)cellClass identifier:(NSString *)identifier data:(id)data {
-    ChopeTableCellInfo *cellInfo = [[ChopeTableCellInfo alloc] init];
-    cellInfo.cellClass = (Class) cellClass;
-    cellInfo.cellIdentifier = identifier;
-    cellInfo.data = data;
-    [self addCellInfo:cellInfo];
+- (void)addData:(id)data cellIdentifier:(NSString *)cellIdentifier {
+    ChopeTableCellInfo *cellInfo = self.cellInfoDic[cellIdentifier];
+    assert(cellInfo != nil);
+
+    [self.cellDataArray addObject:[self cellDataWithCellInfo:cellInfo data:data]];
 }
 
 - (NSUInteger)countOfCell {
-    return self.cellInfoList.count;
+    return self.cellDataArray.count;
+}
+
+
+#pragma mark - CellData
+- (id)cellDataWithCellInfo:(ChopeTableCellInfo *)cellInfo data:(id)data {
+    return (id) @[cellInfo, data];
+}
+
+- (ChopeTableCellInfo *)cellInfoAtIndex:(NSIndexPath *)indexPath {
+    if (self.countOfCell <= indexPath.row) {
+        return nil;
+    }
+
+    NSArray *cellData = self.cellDataArray[(NSUInteger) indexPath.row];
+    return cellData[0];
+}
+
+- (id)dataAtIndex:(NSIndexPath *)indexPath {
+    if (self.countOfCell <= indexPath.row) {
+        return nil;
+    }
+
+    NSArray *cellData = self.cellDataArray[(NSUInteger) indexPath.row];
+    return cellData[1];
 }
 
 @end

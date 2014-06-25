@@ -26,12 +26,12 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     self.tableController = [[ChopeTableController alloc] init];
+
     ChopeTableInfo *tableViewInfo = [self.tableController addTableInfo:self.tableView paging:NO];
-    
-    Class cellClass = [CPSimpleTableViewCell class];
-    
-    for (NSUInteger i=1; i<=10; i++) {
-        [tableViewInfo addCellClass:cellClass identifier:CELL_IDENTIFIER_LABEL data:[NSString stringWithFormat:@"item - %d", i]];
+    [tableViewInfo addCellClass:[CPSimpleTableViewCell class] cellIdentifier:CELL_IDENTIFIER_LABEL];
+
+    for (NSUInteger i=1; i<=100; i++) {
+        [tableViewInfo addData:[NSString stringWithFormat:@"item - %d", i] cellIdentifier:CELL_IDENTIFIER_LABEL];
     }
 }
 

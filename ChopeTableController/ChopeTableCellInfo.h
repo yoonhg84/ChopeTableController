@@ -10,6 +10,5 @@
 
 @property (nonatomic) Class cellClass;
 @property (nonatomic, retain) NSString *cellIdentifier;
-@property (nonatomic, retain) id data;
 
 @end

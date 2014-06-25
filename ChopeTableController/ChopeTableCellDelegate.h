@@ -14,9 +14,9 @@
 - (void)updateData:(id)data indexPath:(NSIndexPath *)indexPath;
 
 @optional
-- (void)selectedWithData:(id)data indexPath:(NSIndexPath *)indexPath;
-- (void)deselectedWithData:(id)data indexPath:(NSIndexPath *)indexPath;
-- (void)highlightedWithData:(id)data indexPath:(NSIndexPath *)indexPath;
-- (void)unhighlightedWithData:(id)data indexPath:(NSIndexPath *)indexPath;
+- (void)selectWithData:(id)data indexPath:(NSIndexPath *)indexPath;
+- (void)deselectWithData:(id)data indexPath:(NSIndexPath *)indexPath;
+- (void)highlightWithData:(id)data indexPath:(NSIndexPath *)indexPath;
+- (void)unhighlightWithData:(id)data indexPath:(NSIndexPath *)indexPath;
 
 @end

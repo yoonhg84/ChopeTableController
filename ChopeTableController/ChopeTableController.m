@@ -10,7 +10,6 @@
 #import "ChopeTableCellDelegate.h"
 #import "ChopeLoadingTableViewCell.h"
 #import "ChopeTableCellInfo.h"
-#import "ChopeTableInfo.h"
 
 
 @interface ChopeTableController ()
@@ -75,9 +74,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChopeTableInfo *info = [self tableViewInfoWithTableView:tableView];
     ChopeTableCellInfo *cellInfo = [info cellInfoAtIndex:indexPath];
+    id data = [info dataAtIndex:indexPath];
     id<ChopeTableCellDelegate> cellDelegate = nil;
     
-    if (info.cellInfoList.count > indexPath.row) {
+    if (info.countOfCell > indexPath.row) {
         cellDelegate = [tableView dequeueReusableCellWithIdentifier:cellInfo.cellIdentifier];
     }
     else {
@@ -88,7 +88,7 @@
         }
     }
     
-    [cellDelegate updateData:cellInfo.data indexPath:indexPath];
+    [cellDelegate updateData:data indexPath:indexPath];
     
     return (UITableViewCell*) cellDelegate;
 }
@@ -98,23 +98,24 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChopeTableInfo *info = [self tableViewInfoWithTableView:tableView];
     ChopeTableCellInfo *cellInfo = [info cellInfoAtIndex:indexPath];
+    id data = [info dataAtIndex:indexPath];
 
     if (info.countOfCell > indexPath.row) {
         Class<ChopeTableCellDelegate> delegateClass = cellInfo.cellClass;
         return [delegateClass heightForCell:[info cellInfoAtIndex:indexPath] indexPath:indexPath];
     }
 
-    return [ChopeLoadingTableViewCell heightForCell:info.cellInfoList indexPath:indexPath];
+    return [ChopeLoadingTableViewCell heightForCell:data indexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     ChopeTableInfo *info = [self tableViewInfoWithTableView:tableView];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    id data = [info dataAtIndex:indexPath];
     
-    if ([cell respondsToSelector:@selector(selectedWithData:indexPath:)]) {
-        ChopeTableCellInfo *cellInfo = [info cellInfoAtIndex:indexPath];
+    if ([cell respondsToSelector:@selector(selectWithData:indexPath:)]) {
         id<ChopeTableCellDelegate> cellDelegate = (id<ChopeTableCellDelegate>) cell;
-        [cellDelegate selectedWithData:cellInfo.data indexPath:indexPath];
+        [cellDelegate selectWithData:data indexPath:indexPath];
     }
     
     if (info.didSelectRow) {
@@ -124,34 +125,34 @@
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     ChopeTableInfo *info = [self tableViewInfoWithTableView:tableView];
-    ChopeTableCellInfo *cellInfo = [info cellInfoAtIndex:indexPath];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    id data = [info dataAtIndex:indexPath];
     
-    if ([cell respondsToSelector:@selector(deselectedWithData:indexPath:)]) {
+    if ([cell respondsToSelector:@selector(deselectWithData:indexPath:)]) {
         id<ChopeTableCellDelegate> cellDelegate = (id<ChopeTableCellDelegate>) cell;
-        [cellDelegate deselectedWithData:cellInfo.data indexPath:indexPath];
+        [cellDelegate deselectWithData:data indexPath:indexPath];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     ChopeTableInfo *info = [self tableViewInfoWithTableView:tableView];
-    ChopeTableCellInfo *cellInfo = [info cellInfoAtIndex:indexPath];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    id data = [info dataAtIndex:indexPath];
     
-    if ([cell respondsToSelector:@selector(highlightedWithData:indexPath:)]) {
+    if ([cell respondsToSelector:@selector(highlightWithData:indexPath:)]) {
         id<ChopeTableCellDelegate> cellDelegate = (id<ChopeTableCellDelegate>) cell;
-        [cellDelegate highlightedWithData:cellInfo.data indexPath:indexPath];
+        [cellDelegate highlightWithData:data indexPath:indexPath];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
     ChopeTableInfo *info = [self tableViewInfoWithTableView:tableView];
-    ChopeTableCellInfo *cellInfo = [info cellInfoAtIndex:indexPath];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    id data = [info dataAtIndex:indexPath];
     
-    if ([cell respondsToSelector:@selector(unhighlightedWithData:indexPath:)]) {
+    if ([cell respondsToSelector:@selector(unhighlightWithData:indexPath:)]) {
         id<ChopeTableCellDelegate> cellDelegate = (id<ChopeTableCellDelegate>) cell;
-        [cellDelegate unhighlightedWithData:cellInfo.data indexPath:indexPath];
+        [cellDelegate unhighlightWithData:data indexPath:indexPath];
     }
 }
 

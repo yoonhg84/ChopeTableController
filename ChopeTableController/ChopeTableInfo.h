@@ -11,17 +11,20 @@
 @interface ChopeTableInfo : NSObject
 
 @property (nonatomic, weak) UITableView *tableView;
-@property (nonatomic, retain) NSMutableArray *cellInfoList;
 @property (nonatomic) BOOL paging;
 @property (nonatomic) BOOL loading;
 @property (nonatomic) BOOL hasMore;
 
-@property (nonatomic, copy) void (^loadPageBlock)(ChopeTableInfo *tableViewInfo);
-@property (nonatomic, copy) void (^didSelectRow)(ChopeTableInfo *tableViewInfo, NSIndexPath *indexPath);
+@property (nonatomic, copy) void (^loadPageBlock)(ChopeTableInfo *cpTableInfo);
+@property (nonatomic, copy) void (^didSelectRow)(ChopeTableInfo *cpTableInfo, NSIndexPath *indexPath);
 
-- (id)cellInfoAtIndex:(NSIndexPath *)indexPath;
-- (void)addCellInfo:(ChopeTableCellInfo *)cellInfo;
-- (void)addCellClass:(Class)cellClass identifier:(NSString *)identifier data:(id)data;
+- (void)addCellClass:(Class)cellClass cellIdentifier:(NSString *)cellIdentifier;
+- (void)addData:(id)data cellIdentifier:(NSString *)cellIdentifier;
 - (NSUInteger)countOfCell;
+
+
+#pragma mark - CellData
+- (ChopeTableCellInfo *)cellInfoAtIndex:(NSIndexPath *)indexPath;
+- (id)dataAtIndex:(NSIndexPath *)indexPath;
 
 @end

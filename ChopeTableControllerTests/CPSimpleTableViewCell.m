@@ -17,7 +17,7 @@
 }
 
 + (CGFloat)heightForCell:(id)data indexPath:(NSIndexPath *)indexPath {
-    return 30*(indexPath.row+1);
+    return 40 + (indexPath.row+1);
 }
 
 - (void)updateData:(id)data indexPath:(NSIndexPath *)indexPath {
@@ -34,19 +34,19 @@
     }
 }
 
-- (void)selectedWithData:(id)data indexPath:(NSIndexPath *)indexPath {
+- (void)selectWithData:(id)data indexPath:(NSIndexPath *)indexPath {
     [self setBackgroundColor:[UIColor blueColor]];
 }
 
-- (void)deselectedWithData:(id)data indexPath:(NSIndexPath *)indexPath {
+- (void)deselectWithData:(id)data indexPath:(NSIndexPath *)indexPath {
     [self setNormalBackgroundColor:indexPath];
 }
 
-- (void)highlightedWithData:(id)data indexPath:(NSIndexPath *)indexPath {
+- (void)highlightWithData:(id)data indexPath:(NSIndexPath *)indexPath {
     [self setBackgroundColor:[UIColor redColor]];
 }
 
-- (void)unhighlightedWithData:(id)data indexPath:(NSIndexPath *)indexPath {
+- (void)unhighlightWithData:(id)data indexPath:(NSIndexPath *)indexPath {
     [self setNormalBackgroundColor:indexPath];
 }
 
