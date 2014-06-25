@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ChopeTableController'
-  s.version      = '0.2.0'
+  s.version      = '0.3.0'
   s.license      =  'MIT'
   s.homepage     = 'https://github.com/chope-yoonhg84/ChopeTableController'
   s.author       = { 'Chope' => 'yoonhg2002@gmail.com' }

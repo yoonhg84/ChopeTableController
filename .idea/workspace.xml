@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b0107a6-3ecd-437c-bbb7-676966874baf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChopeTableControllerTests/CPSimpleTableViewCell.h" afterPath="$PROJECT_DIR$/ChopeTableControllerTests/CPSimpleTableViewCell.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChopeTableControllerTests/CPViewController.m" afterPath="$PROJECT_DIR$/ChopeTableControllerTests/CPViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChopeTableController/ChopeTableController.m" afterPath="$PROJECT_DIR$/ChopeTableController/ChopeTableController.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChopeTableController.podspec" afterPath="$PROJECT_DIR$/ChopeTableController.podspec" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChopeTableController/ChopeTableInfo.h" afterPath="$PROJECT_DIR$/ChopeTableController/ChopeTableInfo.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChopeTableController/ChopeTableInfo.m" afterPath="$PROJECT_DIR$/ChopeTableController/ChopeTableInfo.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ChopeTableControllerTests/Base.lproj/Main.storyboard" afterPath="$PROJECT_DIR$/ChopeTableControllerTests/Base.lproj/Main.storyboard" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ChopeTableControllerTests.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -53,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChopeTableController.podspec" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ChopeTableController.podspec" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ChopeTableController.podspec">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.05" vertical-offset="0" max-vertical-offset="600">
+              <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -75,10 +67,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CPViewController.m" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CPViewController.m" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ChopeTableControllerTests/CPViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.575" vertical-offset="330" max-vertical-offset="930">
+            <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="930">
               <caret line="45" column="78" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
               <folding>
                 <element signature="e#152#180#0" expanded="true" />
@@ -155,11 +147,11 @@
         <option value="$PROJECT_DIR$/ChopeTableController/ChopeTableCellInfo.h" />
         <option value="$PROJECT_DIR$/ChopeTableControllerTests/CPSimpleTableViewCell.m" />
         <option value="$PROJECT_DIR$/ChopeTableController/ChopeTableCellDelegate.h" />
-        <option value="$PROJECT_DIR$/ChopeTableController.podspec" />
         <option value="$PROJECT_DIR$/ChopeTableController/ChopeTableController.m" />
         <option value="$PROJECT_DIR$/ChopeTableController/ChopeTableInfo.m" />
         <option value="$PROJECT_DIR$/ChopeTableController/ChopeTableInfo.h" />
         <option value="$PROJECT_DIR$/ChopeTableControllerTests/CPViewController.m" />
+        <option value="$PROJECT_DIR$/ChopeTableController.podspec" />
       </list>
     </option>
   </component>
@@ -421,14 +413,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ChopeTableController.podspec">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="6" column="47" selection-start-line="6" selection-start-column="47" selection-end-line="6" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ChopeTableController/ChopeTableInfo.m">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1245">
@@ -459,11 +443,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ChopeTableControllerTests/CPViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.575" vertical-offset="330" max-vertical-offset="930">
+        <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="930">
           <caret line="45" column="78" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
           <folding>
             <element signature="e#152#180#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ChopeTableController.podspec">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05" vertical-offset="0" max-vertical-offset="600">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
