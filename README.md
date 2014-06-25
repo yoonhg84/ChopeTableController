@@ -5,9 +5,6 @@ It is not subclass of UITableViewController.
 
 Implemention of UITableViewDataSource, UITableViewDelegate.
 
-
-[TOC]
-
 ##Implements ChopeTableCellDelegate
 ```objective-c
 @interface CPSimpleTableViewCell : UITableViewCell <ChopeTableCellDelegate>
