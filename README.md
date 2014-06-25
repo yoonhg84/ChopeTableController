@@ -5,8 +5,10 @@ It is not subclass of UITableViewController.
 
 Implemention of UITableViewDataSource, UITableViewDelegate.
 
-##Implements ChopeTableCellDelegate
 
+[TOC]
+
+##Implements ChopeTableCellDelegate
 ```objective-c
 @interface CPSimpleTableViewCell : UITableViewCell <ChopeTableCellDelegate>
 
@@ -23,7 +25,7 @@ Implemention of UITableViewDataSource, UITableViewDelegate.
 }
 
 + (CGFloat)heightForCell:(id)data indexPath:(NSIndexPath *)indexPath {
-    return 30*(indexPath.row+1);
+    return 40 + (indexPath.row+1);
 }
 
 - (void)updateData:(id)data indexPath:(NSIndexPath *)indexPath {
@@ -64,23 +66,38 @@ Implemention of UITableViewDataSource, UITableViewDelegate.
 self.tableController = [[ChopeTableController alloc] init];
 ```
 
-##Add Table Information
+##Set Table Information
 
 ```objective-c
 ChopeTableInfo *tableViewInfo = [self.tableController addTableInfo:self.tableView paging:NO];
+[tableViewInfo addCellClass:[CPSimpleTableViewCell class] cellIdentifier:CELL_IDENTIFIER_LABEL];
+[tableViewInfo setDidLoadCellBlock:^(ChopeTableInfo *tableInfo, id <ChopeTableCellDelegate> cellDelegate, NSIndexPath *indexPath) {
+        CPSimpleTableViewCell *cell = (CPSimpleTableViewCell *) cellDelegate;
+        cell.button.tag = indexPath.row;
+        [cell.button addTarget:self action:@selector(touchTestButton:) forControlEvents:UIControlEventTouchUpInside];
+}];
+[tableViewInfo setDidSelectRowBlock:^(ChopeTableInfo *cpTableInfo, NSIndexPath *indexPath) {
+        NSLog(@"selected cell : %d", indexPath.row);
+}];
 ```
 `paging:YES` is not tested.
 
-##Add Cell Information
+##Add Data
 cell information is about one cell.
 - Cell Class
 - Cell identifier
 
 
 ```objective-c
-Class cellClass = [CPSimpleTableViewCell class];
-[tableViewInfo addCellClass:cellClass identifier:CELL_IDENTIFIER_LABEL data:@"item - A"];
+for (NSUInteger i=1; i<=100; i++) {
+    [tableViewInfo addData:[NSString stringWithFormat:@"item - %d", i] cellIdentifier:CELL_IDENTIFIER_LABEL];
+}
 ```
+
+## Screenshot
+![](Screenshot_1.png)
+
+![](Screenshot_2.png)
 
 ## License
 
