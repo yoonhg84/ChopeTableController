@@ -27,6 +27,7 @@
 		1DFD680C1940579F0005A09A /* ChopeTableInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD68061940579F0005A09A /* ChopeTableInfo.m */; };
 		1DFD680F194058700005A09A /* CPSimpleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFD680E194058700005A09A /* CPSimpleTableViewCell.m */; };
 		1DFD681119405CCB0005A09A /* ChopeTableController.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1DFD681019405CCB0005A09A /* ChopeTableController.podspec */; };
+		CCEABDAD1D4F6D099537402C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CCEAB1F4D93C9CA397BA26CA /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		1DFD680D194058700005A09A /* CPSimpleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPSimpleTableViewCell.h; sourceTree = "<group>"; };
 		1DFD680E194058700005A09A /* CPSimpleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPSimpleTableViewCell.m; sourceTree = "<group>"; };
 		1DFD681019405CCB0005A09A /* ChopeTableController.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ChopeTableController.podspec; sourceTree = "<group>"; };
+		CCEAB1F4D93C9CA397BA26CA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				1DFD67EC194057680005A09A /* ChopeTableControllerTestsTests */,
 				1DFD67C6194057680005A09A /* Frameworks */,
 				1DFD67C5194057680005A09A /* Products */,
+				CCEAB1F4D93C9CA397BA26CA /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
@@ -271,6 +274,7 @@
 				1DFD67D2194057680005A09A /* InfoPlist.strings in Resources */,
 				1DFD67DB194057680005A09A /* Main.storyboard in Resources */,
 				1DFD681119405CCB0005A09A /* ChopeTableController.podspec in Resources */,
+				CCEABDAD1D4F6D099537402C /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

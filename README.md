@@ -5,7 +5,12 @@ It is not subclass of UITableViewController.
 
 Implemention of UITableViewDataSource, UITableViewDelegate.
 
-##Implements ChopeTableCellDelegate
+## Installation with CocoaPods
+```
+pod "ChopeTableController"
+```
+
+## Implements ChopeTableCellDelegate
 ```objective-c
 @interface CPSimpleTableViewCell : UITableViewCell <ChopeTableCellDelegate>
 
@@ -58,12 +63,12 @@ Implemention of UITableViewDataSource, UITableViewDelegate.
 @end
 ```
 
-##Create ChopeTableController
+## Create ChopeTableController
 ```objective-c
 self.tableController = [[ChopeTableController alloc] init];
 ```
 
-##Set Table Information
+## Set Table Information
 
 ```objective-c
 ChopeTableInfo *tableViewInfo = [self.tableController addTableInfo:self.tableView paging:NO];
@@ -79,7 +84,7 @@ ChopeTableInfo *tableViewInfo = [self.tableController addTableInfo:self.tableVie
 ```
 `paging:YES` is not tested.
 
-##Add Data
+## Add Data
 cell information is about one cell.
 - Cell Class
 - Cell identifier
@@ -89,6 +94,11 @@ cell information is about one cell.
 for (NSUInteger i=1; i<=100; i++) {
     [tableViewInfo addData:[NSString stringWithFormat:@"item - %d", i] cellIdentifier:CELL_IDENTIFIER_LABEL];
 }
+```
+
+## Remove Data
+```objective-c
+[tableViewInfo removeAllData];
 ```
 
 ## Screenshot

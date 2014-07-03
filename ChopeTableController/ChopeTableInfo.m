@@ -32,6 +32,8 @@
     [self.tableView registerClass:[ChopeTableController bottomLoadingCellClass] forCellReuseIdentifier:[ChopeTableController bottomLoadingCellIdentifier]];
 }
 
+
+#pragma mark - Cell
 - (void)addCellClass:(Class)cellClass cellIdentifier:(NSString *)cellIdentifier {
     ChopeTableCellInfo *cellInfo = [[ChopeTableCellInfo alloc] init];
     cellInfo.cellClass = cellClass;
@@ -40,19 +42,6 @@
     [self.cellInfoDic setObject:cellInfo forKey:cellInfo.cellIdentifier];
 }
 
-- (void)addData:(id)data cellIdentifier:(NSString *)cellIdentifier {
-    ChopeTableCellInfo *cellInfo = self.cellInfoDic[cellIdentifier];
-    assert(cellInfo != nil);
-
-    [self.cellDataArray addObject:[self cellDataWithCellInfo:cellInfo data:data]];
-}
-
-- (NSUInteger)countOfCell {
-    return self.cellDataArray.count;
-}
-
-
-#pragma mark - CellData
 - (id)cellDataWithCellInfo:(ChopeTableCellInfo *)cellInfo data:(id)data {
     return (id) @[cellInfo, data];
 }
@@ -66,6 +55,19 @@
     return cellData[0];
 }
 
+- (NSUInteger)countOfCell {
+    return self.cellDataArray.count;
+}
+
+
+#pragma mark - Data
+- (void)addData:(id)data cellIdentifier:(NSString *)cellIdentifier {
+    ChopeTableCellInfo *cellInfo = self.cellInfoDic[cellIdentifier];
+    assert(cellInfo != nil);
+
+    [self.cellDataArray addObject:[self cellDataWithCellInfo:cellInfo data:data]];
+}
+
 - (id)dataAtIndex:(NSIndexPath *)indexPath {
     if (self.countOfCell <= indexPath.row) {
         return nil;
@@ -73,6 +75,10 @@
 
     NSArray *cellData = self.cellDataArray[(NSUInteger) indexPath.row];
     return cellData[1];
+}
+
+- (void)removeAllData {
+    [self.cellDataArray removeAllObjects];
 }
 
 @end

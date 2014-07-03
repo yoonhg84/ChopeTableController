@@ -36,6 +36,9 @@
     }];
     [tableViewInfo setDidSelectRowBlock:^(ChopeTableInfo *cpTableInfo, NSIndexPath *indexPath) {
         NSLog(@"selected cell : %d", indexPath.row);
+
+        [cpTableInfo removeAllData];
+        [cpTableInfo.tableView reloadData];
     }];
 
     for (NSUInteger i=1; i<=100; i++) {
