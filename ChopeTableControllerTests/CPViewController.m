@@ -8,9 +8,13 @@
 
 #import "CPViewController.h"
 #import "ChopeTableController.h"
-#import "CPSimpleTableViewCell.h"
+#import "CPRightButtonTableViewCell.h"
+#import "CPNoButtonTableViewCell.h"
+#import "ChopeTableCellInfo.h"
 
-#define CELL_IDENTIFIER_LABEL @"simpleCell"
+#define CELL_IDENTIFIER_RIGHT_BUTTON    @"simpleCell"
+#define CELL_IDENTIFIER_NO_BUTTON       @"NoButton"
+
 
 @interface CPViewController ()
 
@@ -27,23 +31,31 @@
     
     self.tableController = [[ChopeTableController alloc] init];
 
-    ChopeTableInfo *tableViewInfo = [self.tableController addTableInfo:self.tableView paging:NO];
-    [tableViewInfo addCellClass:[CPSimpleTableViewCell class] cellIdentifier:CELL_IDENTIFIER_LABEL];
+    ChopeTableInfo *tableViewInfo = [self.tableController addTableView:self.tableView paging:NO];
+    [tableViewInfo addCellClass:[CPRightButtonTableViewCell class] cellIdentifier:CELL_IDENTIFIER_RIGHT_BUTTON];
+    [tableViewInfo addCellClass:[CPNoButtonTableViewCell class] cellIdentifier:CELL_IDENTIFIER_NO_BUTTON];
     [tableViewInfo setDidLoadCellBlock:^(ChopeTableInfo *tableInfo, id <ChopeTableCellDelegate> cellDelegate, NSIndexPath *indexPath) {
-        CPSimpleTableViewCell *cell = (CPSimpleTableViewCell *) cellDelegate;
-        cell.button.tag = indexPath.row;
-        [cell.button addTarget:self action:@selector(touchTestButton:) forControlEvents:UIControlEventTouchUpInside];
+        CPRightButtonTableViewCell *cell = (CPRightButtonTableViewCell *) cellDelegate;
+        ChopeTableCellInfo *cellInfo = [tableInfo cellInfoAtIndex:indexPath];
+
+        if ([cellInfo.cellIdentifier isEqualToString:CELL_IDENTIFIER_RIGHT_BUTTON]) {
+            cell.button.tag = indexPath.row;
+            [cell.button addTarget:self action:@selector(touchTestButton:) forControlEvents:UIControlEventTouchUpInside];
+        }
     }];
     [tableViewInfo setDidSelectRowBlock:^(ChopeTableInfo *cpTableInfo, NSIndexPath *indexPath) {
         NSLog(@"selected cell : %d", indexPath.row);
-
-        [cpTableInfo removeAllData];
-        [cpTableInfo.tableView reloadData];
     }];
 
-    for (NSUInteger i=1; i<=100; i++) {
-        [tableViewInfo addData:[NSString stringWithFormat:@"item - %d", i] cellIdentifier:CELL_IDENTIFIER_LABEL];
+    for (NSUInteger i=1; i<=30; i++) {
+        [tableViewInfo addData:[NSString stringWithFormat:@"item - %d", i] cellIdentifier:CELL_IDENTIFIER_RIGHT_BUTTON];
     }
+
+    [tableViewInfo addDataFromArray:@[@"A",@"B",@"C"] cellIdentifier:CELL_IDENTIFIER_RIGHT_BUTTON];
+    [tableViewInfo insertData:@"chope" cellIdentifier:CELL_IDENTIFIER_RIGHT_BUTTON atIndex:30];
+    [tableViewInfo insertDataFromArray:@[@"Chope",@"yoonhg2002@gmail.com",@"http://blog.chopestory.net"] cellIdentifier:CELL_IDENTIFIER_RIGHT_BUTTON atIndex:0];
+
+    [tableViewInfo setCellIdentifier:CELL_IDENTIFIER_NO_BUTTON atIndex:[NSIndexPath indexPathForRow:[tableViewInfo indexOfData:@"chope"] inSection:0]];
 }
 
 - (void)didReceiveMemoryWarning

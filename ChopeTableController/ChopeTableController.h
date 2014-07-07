@@ -15,7 +15,7 @@
 + (Class)bottomLoadingCellClass;
 + (NSString *)bottomLoadingCellIdentifier;
 
-- (ChopeTableInfo *)addTableInfo:(UITableView*)tableView
+- (ChopeTableInfo *)addTableView:(UITableView *)tableView
                           paging:(BOOL)paging;
 - (ChopeTableInfo *)tableViewInfoWithTableView:(UITableView*)tableView;
 

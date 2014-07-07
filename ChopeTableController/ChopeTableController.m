@@ -37,8 +37,8 @@
     return @"loadingViewCell";
 }
 
-- (ChopeTableInfo *)addTableInfo:(UITableView *)tableView
-                              paging:(BOOL)paging {
+- (ChopeTableInfo *)addTableView:(UITableView *)tableView
+                          paging:(BOOL)paging {
     tableView.dataSource = self;
     tableView.delegate = self;
     

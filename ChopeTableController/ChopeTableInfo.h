@@ -20,14 +20,18 @@
 @property (nonatomic, copy) void (^didSelectRowBlock)(ChopeTableInfo *cpTableInfo, NSIndexPath *indexPath);
 @property (nonatomic, copy) void (^didLoadCellBlock)(ChopeTableInfo *cpTableInfo, id<ChopeTableCellDelegate> cellDelegate, NSIndexPath *indexPath);
 
-#pragma mark - Cell
 - (void)addCellClass:(Class)cellClass cellIdentifier:(NSString *)cellIdentifier;
 - (NSUInteger)countOfCell;
 - (ChopeTableCellInfo *)cellInfoAtIndex:(NSIndexPath *)indexPath;
+- (void)setCellIdentifier:(NSString *)cellIdentifier atIndex:(NSIndexPath *)indexPath;
 
-#pragma mark - Data
 - (void)addData:(id)data cellIdentifier:(NSString *)cellIdentifier;
+- (void)addDataFromArray:(NSArray *)array cellIdentifier:(NSString *)identifier;
+- (void)insertData:(id)data cellIdentifier:(NSString *)cellIdentifier atIndex:(NSUInteger)index;
+- (void)insertDataFromArray:(NSArray *)array cellIdentifier:(NSString *)cellIdentifier atIndex:(NSUInteger)index;
+
 - (id)dataAtIndex:(NSIndexPath *)indexPath;
 - (void)removeAllData;
+- (NSInteger)indexOfData:(id)data;
 
 @end

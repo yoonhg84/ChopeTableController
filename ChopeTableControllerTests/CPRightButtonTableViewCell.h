@@ -1,5 +1,5 @@
 //
-//  CPSimpleTableViewCell.h
+//  CPRightButtonTableViewCell.h
 //  ChopeTableControllerTests
 //
 //  Created by Chope on 2014. 6. 5..
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ChopeTableCellDelegate.h"
 
-@interface CPSimpleTableViewCell : UITableViewCell <ChopeTableCellDelegate>
+@interface CPRightButtonTableViewCell : UITableViewCell <ChopeTableCellDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIButton *button;

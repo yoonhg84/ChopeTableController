@@ -7,18 +7,18 @@ Implemention of UITableViewDataSource, UITableViewDelegate.
 
 ## Installation with CocoaPods
 ```
-pod "ChopeTableController"
+pod "ChopeTableController", '~>0.4'
 ```
 
 ## Implements ChopeTableCellDelegate
 ```objective-c
-@interface CPSimpleTableViewCell : UITableViewCell <ChopeTableCellDelegate>
+@interface CPRightButtonTableViewCell : UITableViewCell <ChopeTableCellDelegate>
 
 @property (nonatomic, weak) IBOutlet UILabel *titleLabel;
 
 @end
 
-@implementation CPSimpleTableViewCell
+@implementation CPRightButtonTableViewCell
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
@@ -71,30 +71,44 @@ self.tableController = [[ChopeTableController alloc] init];
 ## Set Table Information
 
 ```objective-c
-ChopeTableInfo *tableViewInfo = [self.tableController addTableInfo:self.tableView paging:NO];
-[tableViewInfo addCellClass:[CPSimpleTableViewCell class] cellIdentifier:CELL_IDENTIFIER_LABEL];
+ChopeTableInfo *tableViewInfo = [self.tableController addTableView:self.tableView paging:NO];
+[tableViewInfo addCellClass:[CPRightButtonTableViewCell class] cellIdentifier:CELL_IDENTIFIER_RIGHT_BUTTON];
+[tableViewInfo addCellClass:[CPNoButtonTableViewCell class] cellIdentifier:CELL_IDENTIFIER_NO_BUTTON];
 [tableViewInfo setDidLoadCellBlock:^(ChopeTableInfo *tableInfo, id <ChopeTableCellDelegate> cellDelegate, NSIndexPath *indexPath) {
-        CPSimpleTableViewCell *cell = (CPSimpleTableViewCell *) cellDelegate;
+    CPRightButtonTableViewCell *cell = (CPRightButtonTableViewCell *) cellDelegate;
+    ChopeTableCellInfo *cellInfo = [tableInfo cellInfoAtIndex:indexPath];
+
+    if ([cellInfo.cellIdentifier isEqualToString:CELL_IDENTIFIER_RIGHT_BUTTON]) {
         cell.button.tag = indexPath.row;
         [cell.button addTarget:self action:@selector(touchTestButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
 }];
 [tableViewInfo setDidSelectRowBlock:^(ChopeTableInfo *cpTableInfo, NSIndexPath *indexPath) {
-        NSLog(@"selected cell : %d", indexPath.row);
+    NSLog(@"selected cell : %d", indexPath.row);
 }];
+
+for (NSUInteger i=1; i<=30; i++) {
+    [tableViewInfo addData:[NSString stringWithFormat:@"item - %d", i] cellIdentifier:CELL_IDENTIFIER_RIGHT_BUTTON];
+}
+
+[tableViewInfo addDataFromArray:@[@"A",@"B",@"C"] cellIdentifier:CELL_IDENTIFIER_RIGHT_BUTTON];
+[tableViewInfo insertData:@"chope" cellIdentifier:CELL_IDENTIFIER_RIGHT_BUTTON atIndex:30];
+[tableViewInfo insertDataFromArray:@[@"Chope",@"yoonhg2002@gmail.com",@"http://blog.chopestory.net"] cellIdentifier:CELL_IDENTIFIER_RIGHT_BUTTON atIndex:0];
+
+[tableViewInfo setCellIdentifier:CELL_IDENTIFIER_NO_BUTTON atIndex:[NSIndexPath indexPathForRow:[tableViewInfo indexOfData:@"chope"] inSection:0]];
 ```
 `paging:YES` is not tested.
 
 ## Add Data
 cell information is about one cell.
-- Cell Class
-- Cell identifier
-
 
 ```objective-c
-for (NSUInteger i=1; i<=100; i++) {
-    [tableViewInfo addData:[NSString stringWithFormat:@"item - %d", i] cellIdentifier:CELL_IDENTIFIER_LABEL];
-}
+- (void)addData:(id)data cellIdentifier:(NSString *)cellIdentifier;
+- (void)addDataFromArray:(NSArray *)array cellIdentifier:(NSString *)identifier;
+- (void)insertData:(id)data cellIdentifier:(NSString *)cellIdentifier atIndex:(NSUInteger)index;
+- (void)insertDataFromArray:(NSArray *)array cellIdentifier:(NSString *)cellIdentifier atIndex:(NSUInteger)index;
 ```
+
 
 ## Remove Data
 ```objective-c
