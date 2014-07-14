@@ -106,7 +106,7 @@
 
     if (info.countOfCell > indexPath.row) {
         Class<ChopeTableCellDelegate> delegateClass = cellInfo.cellClass;
-        return [delegateClass heightForCell:[info cellInfoAtIndex:indexPath] indexPath:indexPath];
+        return [delegateClass heightForCell:[info dataAtIndex:indexPath] indexPath:indexPath];
     }
 
     return [ChopeLoadingTableViewCell heightForCell:data indexPath:indexPath];
